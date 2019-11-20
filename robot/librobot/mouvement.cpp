@@ -40,19 +40,19 @@ void tournerGauche90()
 }                                                                                                                                    
 void tournerUnPeuDroite()
 {
-   ajustementPWM(0.4,0.6);
+   ajustementPWM(0.3,0.5);
 }
 void tournerUnPeuGauche()
 {
-    ajustementPWM(0.6,0.3);
+    ajustementPWM(0.5,0.3);
 }
 void tournerDroite()
 {
-    ajustementPWM(0.3,0.6);
+    ajustementPWM(0.2,0.7);
 }
 void tournerGauche()
 {
-    ajustementPWM(0.6,0.2);
+    ajustementPWM(0.7,0.2);
 } 
 void arreterMoteurA()
 {

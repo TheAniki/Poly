@@ -106,7 +106,8 @@ bool CapteursDroite(void)
     if((capteur3 || !capteur1 || !capteur2 || capteur4 || capteur5 ))
         {
             _delay_ms(1);
-            if((capteur3 || !capteur1 || !capteur2 || capteur4 || capteur5 )){
+            if((capteur3 || !capteur1 || !capteur2 || capteur4 || capteur5 ))
+            {
                 return true;
             }
             return false;
@@ -116,118 +117,78 @@ bool CapteursDroite(void)
 
 void suivreLigne()
 {
-     DDRA = 0x00;
-    DDRB =0xff;
-    //Son son;
+   DDRA = 0x00;
+    DDRB = 0xff;
+    Son son;
 
     initialisationMouvement();
     for(;;)
     {
      while(lireCapteurs())
      {
-         if ((lireCapteur1()&&lireCapteur2() )|| lireCapteur1())
+         if ((lireCapteur1()&&lireCapteur2()) || lireCapteur1())
          {
              while(lireCapteur1()){tournerGauche();}
-             arretMouvement();
-             //son.operationFaite();
+             arretMouvement();            
 
          }
-         if (lireCapteur2())
+         else if (lireCapteur2())
          {
             while(lireCapteur2()){tournerUnPeuGauche();}
              arretMouvement();
-             //son.operationFaite();
+            
          }
-         if (lireCapteur3())
+         else if (lireCapteur3())
          {
              while(lireCapteur3()){avancerVitesseConst(0.4);}
               arretMouvement();
-              //son.operationFaite();
+             
          }
-         if (lireCapteur4())
+         else if (lireCapteur4())
          {
              while(lireCapteur4()){tournerUnPeuDroite();}
               arretMouvement();
-             //son.operationFaite();
+            
          }
-         if (lireCapteur5())
+         else if (lireCapteur5())
          {
-             while(lireCapteur5()){tournerDroite();}
+             while(lireCapteur5()){tournerDroite(); if(!lireCapteur5()){arretMouvement();}}           
+             
               arretMouvement();
-              //son.operationFaite();
+              
          }
-         if(CapteursGauche())
+         else if((capteur3 || capteur1 || capteur2 || !capteur4 || !capteur5 ))
          {
              while(!lireCapteur5()){
-                    //son.operationFaite();
-                    tournerGauche90();
-                    //son.operationFaite();
-
+                   
+                    tournerGauche();            
                 }
+                arretMouvement();
 
         }
-        if(CapteursDroite())
+        else if((capteur3 || !capteur1 || !capteur2 || capteur4 || capteur5 ))
         {
-                while(!lireCapteur1()){avancerVitesseConst(0.5);}
+                while(!lireCapteur1()){
+                    tournerDroite();
+                   }
+                   arretMouvement();
+        }
+        else
+        {
+            arretMouvement();
         }
         
         }
     }
 }
-void suivreCouloir(bool running)
-{
-    DDRA = 0x00;
-    DDRB =0xff;
-    Son son;
-
-    initialisationMouvement();
- for(;;)
- {
-      if ((lireCapteur1() && lireCapteur2()) || lireCapteur1())
-      {
-          while((lireCapteur1() && lireCapteur2()) || lireCapteur1())
-          {
-              tournerDroite();
-          }
-      }
-      else if(lireCapteur2())
-      {
-          while(lireCapteur2())
-          {
-              tournerUnPeuDroite();
-          }
-      }
-      else if(lireCapteur4())
-      {
-          while(lireCapteur4())
-          {
-              tournerUnPeuGauche();
-          }
-      }
-      else if((lireCapteur5() && lireCapteur4()) || lireCapteur5())
-      {
-          while ((lireCapteur5() && lireCapteur4()) || lireCapteur5())
-          {
-              tournerGauche();             
-          }  
-          avancerVitesseConst(0.5);
-      }
-     
-      
-  }
-    
-  arretMouvement();
-}
-
 
 int main()
 {
-    DDRD = 0xFF;
-    DDRA = 0x00;
+   
     suivreLigne();
-    //suivreCouloir(true);
 
-  
+    
+    
     return 0;
 
 }
