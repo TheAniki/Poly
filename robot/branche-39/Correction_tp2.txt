@@ -1,0 +1,76 @@
+Polytechnique Montréal
+
+Département de génie informatique et génie logiciel
+
+INF1900: Projet initial de système embarqué
+
+Grille de correction des programmes:
+
+Identification:
+  Travail    : Introduction aux machines à états finis logicielles
+  Section #  : 1
+  Équipe #   : 39
+  Correcteur : Claudia Onorato
+
+Lisibilité:
+- En-têtes en début de programme et de fonctions   (0/1)
+- Identificateurs significatifs (variables, etc.)  (0/1)
+- Commentaires aux endroits stratégiques           (1/1)
+- Indentation et facilité de lecture               (0/1)
+- Broches, ressources matérielles bien identifiées (0/1)
+
+Modularité et comprehension:
+- Les fonctions sont assez courtes, bien établies et avec de bons paramètres  (1/1)
+- Le code reflète une bonne compréhension des concepts de base                (1.5/2)
+- Le code montre que la solution proposée permet de bien résoudre le problème (2/2)
+
+Fonctionnalité:
+- Soumission réussie sous GIT (bon endroit, sans fichiers inutiles) (2/3)
+- Compilation sans "warnings" et sans erreurs                       (2/2)
+- Fonctionnement correct (évalué en "boite noire")                  (5/5)
+
+Total: 14.5/20
+
+Commentaires du correcteur:
+
+En-têtes en début de programme et de fonctions
+(-1)    Il ne se trouve pas d'en-tête en début de programme pour indiquer les noms des auteurs et une brève description du programme.
+
+Identificateurs significatifs:
+(-.5)   La variable "Test" et les paramètres nommés "a" n'indiquent pas clairement ce qu'ils contiennent. Cela nuit à la 
+        lisibilité du code.
+(-.5)   Les noms de variables et de fonctions ne devraient être qu'en une seule langue (ex. BUTTON_IS_PRESSED vs VERT)
+
+Indentation et facilité de lecture
+(-1)    Les indentations ne sont pas bonnes dans le pb1. Les lignes 96 à 98 devraient avoir le même nombre d'indentation que la ligne 95.
+
+Broches, ressources matérielles bien identifiées
+(-1)    Il faut indiquer dans l'en-tête des programmes le branchement (ex. la DEL libre doit être connectée à quelles broches).
+
+Le code reflète une bonne compréhension des concepts de base
+(-0.5)  Vous n'avez pas à configurer le mode, en entrée ou en sortie, de ports non utilisés.
+
+Soumission réussie sous GIT
+(-1)    Le répertoire git contient un fichier temporaire `Makefile~`. Ceux-ci ne devraient pas être sauvegardés sur git.
+
+======================= Basé sur le commit suivant =============================
+commit e8ddd2cf51285f19e86b4bf9e0117894aaab81a0
+Author: Alexandre Rayan Ramtoula <alramg@l3818-16.info.polymtl.ca>
+Date:   Fri Sep 13 09:32:22 2019 -0400
+
+    Soumission finale du TP2, modification dans les makefiles
+
+======================= Fichiers indésirables =============================
+tp/tp2/Makefile~
+
+======================= Sortie de make dans les sous-répertoires =============================
+======================= Sortie de make dans tp/tp2/pb1 =============================
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Wall                                         -fno-exceptions      -c pb1.cpp
+avr-gcc -Wl,-Map,test.out.map -mmcu=atmega324pa -o test.out  pb1.o \
+	-lm 
+
+======================= Sortie de make dans tp/tp2/pb2 =============================
+avr-gcc -I. -MMD  -g -mmcu=atmega324pa -Os -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Wall                                         -fno-exceptions      -c pb2.cpp
+avr-gcc -Wl,-Map,test.out.map -mmcu=atmega324pa -o test.out  pb2.o \
+	-lm 
+

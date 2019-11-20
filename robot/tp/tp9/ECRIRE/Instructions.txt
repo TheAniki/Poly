@@ -1,0 +1,19 @@
+dbt;
+att 10;
+dbc 3;
+dal 10;
+det 10;
+fbc;
+sgo 9;
+mav 50;
+mre 50;
+mar;
+trg;
+trd;
+trg;
+trg;
+trd;
+mar;
+fin;
+
+
