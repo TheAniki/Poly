@@ -21,7 +21,7 @@ void tournerDroite90()
 {
     PORTD=(0X00<<6);
       ajustementPWM(0,0.5);
-    _delay_ms(2000);
+    _delay_ms(1500);
     arretMouvement();
 }
 void tournerGauche45()
@@ -35,23 +35,27 @@ void tournerGauche90()
 {
     PORTD=(0X00<<6);
       ajustementPWM(0.5,0);
-    _delay_ms(2000); //~95 100 degree
+    _delay_ms(1500); //~95 100 degree
     arretMouvement();
 }                                                                                                                                    
 void tournerUnPeuDroite()
 {
+     arretMouvement();
    ajustementPWM(0.3,0.5);
 }
 void tournerUnPeuGauche()
 {
+     arretMouvement();
     ajustementPWM(0.5,0.3);
 }
 void tournerDroite()
 {
+     arretMouvement();
     ajustementPWM(0.2,0.7);
 }
 void tournerGauche()
 {
+     arretMouvement();
     ajustementPWM(0.7,0.2);
 } 
 void arreterMoteurA()

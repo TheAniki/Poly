@@ -2,11 +2,11 @@
 #include "mouvement.h"
 #include "Son.h"
 
-#define capteur1 PINA & 0x11
-#define capteur2 PINA & 0x12
-#define capteur3 PINA & 0x14
-#define capteur4 PINA & 0x18
-#define capteur5 PINA & 0x30
+#define capteur1 PINA & 0x01
+#define capteur2 PINA & 0x02
+#define capteur3 PINA & 0x04
+#define capteur4 PINA & 0x08
+#define capteur5 PINA & 0x10
 
 
 bool lireCapteur1(void)
@@ -117,15 +117,14 @@ bool CapteursDroite(void)
 
 void suivreLigne()
 {
-   DDRA = 0x00;
+    DDRA = 0x00;
     DDRB = 0xff;
     Son son;
 
     initialisationMouvement();
     for(;;)
     {
-     while(lireCapteurs())
-     {
+    
          if ((lireCapteur1()&&lireCapteur2()) || lireCapteur1())
          {
              while(lireCapteur1()){tournerGauche();}
@@ -152,12 +151,20 @@ void suivreLigne()
          }
          else if (lireCapteur5())
          {
-             while(lireCapteur5()){tournerDroite(); if(!lireCapteur5()){arretMouvement();}}           
+             while(lireCapteur5())
+             {
+                 tournerDroite(); 
+                if(!lireCapteur5())
+                {
+                    arretMouvement();
+                    break; 
+                }
+            }           
              
               arretMouvement();
               
          }
-         else if((capteur3 || capteur1 || capteur2 || !capteur4 || !capteur5 ))
+         else if(CapteursGauche())
          {
              while(!lireCapteur5()){
                    
@@ -166,7 +173,7 @@ void suivreLigne()
                 arretMouvement();
 
         }
-        else if((capteur3 || !capteur1 || !capteur2 || capteur4 || capteur5 ))
+        else if(CapteursDroite())
         {
                 while(!lireCapteur1()){
                     tournerDroite();
@@ -175,10 +182,13 @@ void suivreLigne()
         }
         else
         {
-            arretMouvement();
-        }
-        
-        }
+            
+            while(!lireCapteur5() && !lireCapteur1()){
+                  
+                    tournerUnPeuGauche();           
+                }                
+           
+        }       
     }
 }
 
