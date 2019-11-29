@@ -57,7 +57,73 @@ void Son::note(Note note,int tonalite)
     TCCR0B|= (1<<CS02);
     OCR0A=(F_CPU/(2*256*frequenceNote))-1; // *2 pour avoir une meilleure gamme
 }
+void Son::HarryPotter()
+{
+    note(si,1);
+    _delay_ms(400);
+    TCCR0A &=(0 << COM0A1);
 
+    note(mi,1);
+    _delay_ms(400);
+    TCCR0A &=(0 << COM0A1);
+
+    note(sol,1);
+    _delay_ms(200);
+    TCCR0A &=(0 << COM0A1);
+
+    _delay_ms(10);
+    note(solb,1);
+    _delay_ms(200);
+    TCCR0A &=(0 << COM0A1);
+
+    note(mi,1);
+    _delay_ms(800);
+    TCCR0A &=(0 << COM0A1);
+
+    note(si,2);
+    _delay_ms(400);
+    TCCR0A &=(0 << COM0A1);
+    _delay_ms(10);
+
+    note(la,2);
+    _delay_ms(800);
+    TCCR0A &=(0 << COM0A1);
+    _delay_ms(10);
+
+    note(solb,1);
+    _delay_ms(1000);
+    TCCR0A &=(0 << COM0A1);
+
+    note(mi,1);
+    _delay_ms(400);
+    TCCR0A &=(0 << COM0A1);
+
+    note(sol,1);
+    _delay_ms(200);
+    TCCR0A &=(0 << COM0A1);
+    
+    note(solb,1);
+    _delay_ms(200);
+    TCCR0A &=(0 << COM0A1);
+
+    note(mib,1);
+    _delay_ms(400);
+    TCCR0A &=(0 << COM0A1);
+
+    note(la,1);
+    _delay_ms(400);
+    TCCR0A &=(0 << COM0A1);
+
+    note(si,1);
+    _delay_ms(1000);
+    TCCR0A &=(0 << COM0A1);
+
+    // _delay_ms(400);
+
+
+
+
+}
 void Son::GameOfThrones()
 {
     note(sol,1);

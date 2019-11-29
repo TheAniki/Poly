@@ -35,6 +35,7 @@ public:
     void GameOfThrones(); //melodie 1
     void operationFaite(); // //melodie 2
     void DejaVu();//melodie 3
+    void HarryPotter();// melodie 4
     void arreterSon(); 
 };
 
