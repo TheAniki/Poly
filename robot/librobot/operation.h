@@ -23,9 +23,11 @@ void faireCoupureGauche(bool);
 // liste des operations 
 void suivreLigneSimplement();
 void suivreToutesLignes();
-void faireCoupure(bool);
-void faireCouloir(); // il manque faire couloir
+void faireCoupure();
+void faireCouloir(bool); // il manque faire couloir
 void faireBoucle();  // il manque faire boucle
+void suivreLigneBis();
+void suivreCouloir();
 
 #endif // !OPERATION_H
 

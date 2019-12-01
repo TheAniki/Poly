@@ -1,0 +1,8 @@
+# Ignore les fichiers de types suivants : 
+
+*.a
+*.o
+*.hex
+*.out
+*.map
+*.d

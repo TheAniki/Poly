@@ -23,18 +23,19 @@ MCU=atmega324pa
 
 # Nom de votre projet
 # (utilisez un seul mot, exemple: 'monprojet')
-PROJECTNAME=test
+PROJECTNAME=librobot
 
 # Fichiers sources
 # Utilisez le suffixe .cpp pour les fichiers C++
 # Listez tous les fichiers a compiler, separes par
 # un espace. exemple: 'tp1.c tp2.cpp':
-PRJSRC= demo.cpp customprocs.cpp lcm_so1602dtr_m.cpp lcm_so1602dtr_m_fw.cpp
+PRJSRC= main.cpp
+
 # Inclusions additionnels (ex: -I/path/to/mydir)
-INC=
+INC= -I ../../librobot
 
 # Libraires a lier (ex: -lmylib)
-LIBS=
+LIBS= -L ../../librobot/ -lrobot
 
 # Niveau d'optimization
 # Utilisez s (size opt), 1, 2, 3 ou 0 (off)
@@ -78,8 +79,7 @@ HEXFORMAT=ihex
 CFLAGS=-I. -MMD $(INC) -g -mmcu=$(MCU) -O$(OPTLEVEL) \
 	-fpack-struct -fshort-enums             \
 	-funsigned-bitfields -funsigned-char    \
-	-Wall                            \
-	-CPPFLAGS += -DF_CPU=8000000UL
+	-Wall                                        
 
 # Flags pour le compilateur en C++
 CXXFLAGS=-fno-exceptions     

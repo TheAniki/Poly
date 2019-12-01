@@ -5,6 +5,8 @@
 #include <util/delay.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <util/delay.h>
+#include <avr/io.h>
 
 //do re mi fa sol la si do
 enum Note // on se facilite l ecriture d une melodie avec une fonction qui prendrait une note et sa tonalite
@@ -35,7 +37,6 @@ public:
     void GameOfThrones(); //melodie 1
     void operationFaite(); // //melodie 2
     void DejaVu();//melodie 3
-    void HarryPotter();// melodie 4
     void arreterSon(); 
 };
 

@@ -13,8 +13,6 @@ void tournerDroite45();
 void tournerDroite90();
 void tournerGauche45();
 void tournerGauche90();
-void arreterMoteurA();
-void arreterMoteurB();
 void tournerUnPeuDroite();
 void tournerUnPeuGauche();
 void tournerDroite();
